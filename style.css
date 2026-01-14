@@ -1,10 +1,13 @@
 body{
     padding: 0px;
     margin: 0px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    background-color: aliceblue;
     
 }
 #container{
@@ -19,12 +22,20 @@ body{
 
 button{
     font-size: large ;
-    margin: 20px;
+    background-color: white;
+    
 }
 
 .optional{
     display: flex;
-    background-color: aquamarine;
-    width: 10px;
-    height: 10px;
+    gap: 20px;
+}
+
+.rgb, .darken{
+    background-color: white;
+}
+
+.rgb.active, .darken.active{
+    background-color: rgb(0, 0, 0) ;
+    color: white;
 }

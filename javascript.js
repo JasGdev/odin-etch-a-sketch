@@ -3,6 +3,7 @@ const container = document.querySelector('#container');
 
 // 0 is for turn white, 1 is RGB, 2 is darken, 3 is RGB + darken
 var mode = 0;
+var currentDarkness = 1;
 
 // create 16x16 grid of square divs
 // put grid squares inside container
@@ -21,8 +22,27 @@ function makeSquareDivs(num){
     const squares = document.querySelectorAll(".squares");
 
     for (square of squares){
-        square.addEventListener('mouseenter', (e) =>
-            e.target.style.backgroundColor = "white");
+        square.addEventListener('mouseenter', (e) => {
+            if (mode == 0){
+                e.target.style.backgroundColor = "white";
+            }
+            //RGB
+            else if (mode == 1){
+                e.target.style.backgroundColor = randomRGB();
+            }
+            //Darken
+            else if (mode == 2){
+                e.target.style.backgroundColor = "blue";
+            }
+            //RGB and Darken
+            else if (mode == 3){
+                e.target.style.backgroundColor = "purple";
+            }
+            
+
+
+        })
+            
     }
 }
 
@@ -73,6 +93,7 @@ optionDiv.appendChild(darkenBt)
 // if mode = 1 => 0
 // if mode = 2 => 3
 // if mode = 3 => 2
+
 rgbBt.addEventListener('click', (e) => {
     rgbBt.classList.toggle("active");
     if (mode == 0){mode = 1} 
@@ -91,13 +112,16 @@ rgbBt.addEventListener('click', (e) => {
 
 darkenBt.addEventListener('click', (e) => {
     darkenBt.classList.toggle("active");
-})
-
-darkenBt.addEventListener('click', (e) => {
-    darkenBt.classList.toggle("active");
     if (mode == 0){mode = 2} 
     else if (mode == 2) {mode = 0}
     else if (mode == 1) {mode = 3}
     else {mode = 1}
 })
 
+
+function randomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
