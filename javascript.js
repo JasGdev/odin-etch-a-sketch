@@ -3,7 +3,7 @@ const container = document.querySelector('#container');
 
 // 0 is for turn white, 1 is RGB, 2 is darken, 3 is RGB + darken
 var mode = 0;
-var currentDarkness = 1;
+var currentDarkness = 10;
 
 // create 16x16 grid of square divs
 // put grid squares inside container
@@ -23,6 +23,8 @@ function makeSquareDivs(num){
 
     for (square of squares){
         square.addEventListener('mouseenter', (e) => {
+            currentDarkness -= 1;
+            console.log(currentDarkness);
             if (mode == 0){
                 e.target.style.backgroundColor = "white";
             }
@@ -33,6 +35,7 @@ function makeSquareDivs(num){
             //Darken
             else if (mode == 2){
                 e.target.style.backgroundColor = "blue";
+                e.target.style.opacity = e.target.style.opacity - 0.00001;
             }
             //RGB and Darken
             else if (mode == 3){
