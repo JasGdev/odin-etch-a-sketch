@@ -1,0 +1,30 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+#container{
+    gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 500px;
+    background-color: aqua;
+    align-items: end;
+}
+
+button{
+    font-size: large ;
+    margin: 20px;
+}
+
+.optional{
+    display: flex;
+    background-color: aquamarine;
+    width: 10px;
+    height: 10px;
+}
